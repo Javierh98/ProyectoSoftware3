@@ -13,6 +13,13 @@ namespace ProyectoFinal.Controllers
             return View();
         }
 
+        public ActionResult Bienes()
+        {
+            ViewBag.Message = "Your application goodies page.";
+
+            return View();
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
