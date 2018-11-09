@@ -135,9 +135,7 @@ namespace CapaDatos.Clases
                 throw new Exception(ex.Message, ex);
             }
         }
-
         #endregion
-
 
     }
 }
