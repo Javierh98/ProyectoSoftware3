@@ -33,12 +33,5 @@ namespace ProyectoFinal.Controllers
 
             return View();
         }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Más información al alcance de su mano.";
-
-            return View();
-        }
     }
 }
