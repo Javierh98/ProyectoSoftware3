@@ -8,25 +8,58 @@
 <div>
     @using (Html.BeginForm("eMail", "EmailSetup", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
-        <center>
-            <table>
-                <tr>
-                    <td style="width:80px">To:</td>
-                    <td>@Html.TextBoxFor(model => model.To)</td>
-                </tr>
-                <tr>
-                    <td style="width:80px">Subject:</td>
-                    <td>@Html.TextBoxFor(model => model.Subject)</td>
-                </tr>
-                <tr>
-                    <td style="width:80px">Body:</td>
-                    <td>@Html.TextAreaFor(model => model.Body, new { rows = "10", cols = "50"})</td>
-                </tr>
-                <tr>
-                    <td><input type="submit" value="Enviar"/></td>
- 
-                </tr>
-            </table>
-        </center>
+    <div class="container">
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Para:")
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.To, (object)new { @placeHolder = "Ingrese la direccion", required = "required", @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Asunto:")
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBoxFor(model => model.Subject, (object)new { @placeHolder = "Ingrese el asunto", required = "required", @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Consulta:")
+            </div>
+            <div class="col-sm-6">
+                @Html.TextAreaFor(model => model.Body, (object)new { @placeHolder = "Ingrese su consulta", required = "required", @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                <input type="submit" class="btn btn-primary" value="Enviar" />
+                <input type="submit" class="btn btn-danger" value="Cancelar" />
+            </div>
+            <div class="col-sm-4">
+            </div>
+        </div>
+
+    </div>
     }
 </div>

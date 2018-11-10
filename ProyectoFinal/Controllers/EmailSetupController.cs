@@ -16,6 +16,7 @@ namespace ProyectoFinal.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public ActionResult eMail(ProyectoFinal.Models.gmail model)
         {
