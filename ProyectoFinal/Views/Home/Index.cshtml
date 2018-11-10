@@ -1,4 +1,6 @@
-﻿@{
+﻿@using System.Data;
+@using Comunes;
+@{
     ViewBag.Title = "Home Page";
 }
 <div class="row">
@@ -44,4 +46,39 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+</div>
+
+<div class="container">
+    <table class="table table-hover " id="tbl">
+        <thead>
+            <tr>
+                <td><h2>Mira nuestras últimas ofertas que tenemos para ti</h2></td>
+            </tr>
+            <tr>
+                <td>No. del bien</td>
+                <td>Nombre</td>
+                <td>Costo</td>
+                <td>Estado</td>
+                <td>Ubicacion</td>
+            </tr>
+        </thead>
+        @{
+            CapaNegocios.Clases.DetalleBien vDetalleBien = new CapaNegocios.Clases.DetalleBien();
+            foreach (DataRow item in vDetalleBien.SelectSinArchivo().Rows)
+            {
+                string vId = item["ID_Detalle_Bien"].ToString();
+                string vNombre = item["Nombre_Detalle_Bien"].ToString();
+                string vCosto = item["Costo_Detalle_Bien"].ToString();
+                string vEstado= item["Estado_Detalle_Bien"].ToString();
+                string vUbicacion = item["Ubicacion_Bien"].ToString();
+                <tr>
+                    <td class="numero">@vId</td>
+                    <td>@vNombre</td>
+                    <td>@vCosto</td>
+                    <td>@vEstado</td>
+                    <td>@vUbicacion</td>
+                </tr>
+            }
+        }
+    </table>
 </div>

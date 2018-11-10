@@ -69,6 +69,28 @@ namespace CapaNegocios.Clases
             }
             return dtDatos;
         }
+        public DataTable SelectSinArchivo()
+        {
+            DataTable dtDatos = new DataTable();
+            CapaDatos.Conexion.Conexion vConexiones = new CapaDatos.Conexion.Conexion();
+            CapaDatos.Conexion.Transaccion vTransaccion = new CapaDatos.Conexion.Transaccion();
+            CapaDatos.Clases.DetalleBien vCapaDatos = new CapaDatos.Clases.DetalleBien();
+            try
+            {
+                vConexiones.AbrirConexion("BASEDATOS");
+                vTransaccion = new CapaDatos.Conexion.Transaccion(vConexiones.Conexiones, "BASEDATOS");
+                vTransaccion.BeginTransaction();
+
+                dtDatos = vCapaDatos.SelectsinArchivo(null, vConexiones.Conexiones, vTransaccion.Transacciones);
+                vTransaccion.Commit();
+            }
+            catch (Exception ex)
+            {
+                vTransaccion.Rollback();
+                throw new Exception(ex.Message, ex);
+            }
+                return dtDatos;
+        }
 
         #endregion
 
