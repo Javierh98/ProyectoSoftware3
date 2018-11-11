@@ -25,7 +25,8 @@ namespace ProyectoFinal
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css",
-                      "~/Content/Footer.css"));
+                      "~/Content/Footer.css",
+                      "~/Content/ExchangeRate.css"));
         }
     }
 }
