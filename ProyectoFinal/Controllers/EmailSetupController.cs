@@ -58,7 +58,7 @@ namespace ProyectoFinal.Controllers
         public FileResult GetCaptchaImage()
         {
             CaptchaRandomImage CI = new CaptchaRandomImage();
-            this.Session["CaptchaImageText"] = CI.GetRandomString(10);
+            this.Session["CaptchaImageText"] = CI.GetRandomString(5);
             CI.GenerateImage(this.Session["CaptchaImageText"].ToString(), 300, 75, Color.DarkGray, Color.White);
             MemoryStream stream = new MemoryStream();
             CI.Image.Save(stream, ImageFormat.Png);
