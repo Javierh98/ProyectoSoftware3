@@ -52,17 +52,38 @@
     <table class="table table-hover " id="tbl">
         <thead>
             <tr>
-                <td><h2>Mira nuestras últimas ofertas que tenemos para ti</h2></td>
+                <td><h1>Mira nuestras últimas ofertas que tenemos para ti</h1></td>
             </tr>
-            <tr>
-                <td>No. del bien</td>
+            <tr style="background-color:#292c2f; color:white;">
+                <td>Número del bien</td>
                 <td>Nombre</td>
                 <td>Costo</td>
+                <td>Avaluo</td>
                 <td>Estado</td>
                 <td>Ubicacion</td>
             </tr>
         </thead>
-        
+        @{
+            CapaNegocios.Clases.DetalleBien vDetalle = new CapaNegocios.Clases.DetalleBien();
+            foreach (DataRow item in vDetalle.Select().Rows)
+            {
+                string vNoBien = item["ID_Detalle_Bien"].ToString();
+                string vNombreBien = item["Nombre_Detalle_Bien"].ToString();
+                string vCostoBien = item["Costo_Detalle_Bien"].ToString();
+                string vAvaluoBien = item["Avaluo_Detalle_Bien"].ToString();
+                string vEstadoBien = item["Estado_Detalle_Bien"].ToString();
+                string vUbicacionien = item["Ubicacion_Bien"].ToString();
+
+        <tr>
+            <td class="numero">@vNoBien</td>
+            <td>@vNombreBien</td>
+            <td>@vCostoBien</td>
+            <td>@vAvaluoBien</td>
+            <td>@vEstadoBien</td>
+            <td>@vUbicacionien</td>
+        </tr>
+            }
+        }
     </table>
 </div>
 
