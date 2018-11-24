@@ -28,7 +28,7 @@ namespace ProyectoFinal.Controllers
 
             if (this.Session["CaptchaImageText"].ToString() == Request.Form["CaptchaText"].ToString())
             {
-                MailMessage mm = new MailMessage("hjavier498@gmail.com", model.To);
+                MailMessage mm = new MailMessage("javierhernandezaproyecto@gmail.com", model.To);
                 mm.Subject = model.Subject;
                 mm.Body = model.Body;
                 mm.IsBodyHtml = false;
