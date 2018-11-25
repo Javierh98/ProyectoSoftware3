@@ -20,7 +20,7 @@ namespace ProyectoFinal.Controllers
         {
             return View();
         }
-
+        
         [HttpPost]
         public ActionResult eMail(ProyectoFinal.Models.gmail model)
         {
@@ -28,6 +28,7 @@ namespace ProyectoFinal.Controllers
 
             if (this.Session["CaptchaImageText"].ToString() == Request.Form["CaptchaText"].ToString())
             {
+
                 MailMessage mm = new MailMessage("javierhernandezaproyecto@gmail.com", model.To);
                 mm.Subject = model.Subject;
                 mm.Body = model.Body;
