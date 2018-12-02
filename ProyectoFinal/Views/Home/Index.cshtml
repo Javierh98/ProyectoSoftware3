@@ -67,7 +67,7 @@
         </thead>
         @{
             CapaNegocios.Clases.DetalleBien vDetalle = new CapaNegocios.Clases.DetalleBien();
-            foreach (DataRow item in vDetalle.Select().Rows)
+            foreach (DataRow item in vDetalle.Select_Tres().Rows)
             {
                 string vNoBien = item["ID_Detalle_Bien"].ToString();
                 string vNombreBien = item["Nombre_Detalle_Bien"].ToString();
