@@ -70,6 +70,30 @@ namespace CapaNegocios.Clases
             return dtDatos;
         }
 
+        public List<Comunes.Estructuras.DetalleBien> Select64()
+        {
+            DataTable dtDatos = new DataTable();
+            List<Comunes.Estructuras.DetalleBien> vResultado = new List<Comunes.Estructuras.DetalleBien>();
+            CapaDatos.Conexion.Conexion vConexiones = new CapaDatos.Conexion.Conexion();
+            CapaDatos.Conexion.Transaccion vTransaccion = new CapaDatos.Conexion.Transaccion();
+            CapaDatos.Clases.DetalleBien vCapaDatos = new CapaDatos.Clases.DetalleBien();
+            try
+            {
+                vConexiones.AbrirConexion("BASEDATOS");
+                vTransaccion = new CapaDatos.Conexion.Transaccion(vConexiones.Conexiones, "BASEDATOS");
+                vTransaccion.BeginTransaction();
+
+                dtDatos = vCapaDatos.Select(null, vConexiones.Conexiones, vTransaccion.Transacciones);
+                vTransaccion.Commit();
+            }
+            catch (Exception ex)
+            {
+                vTransaccion.Rollback();
+                throw new Exception(ex.Message, ex);
+            }
+            return dtDatos;
+        }
+
         public DataTable Select_Tres()
         {
             DataTable dtDatos = new DataTable();

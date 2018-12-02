@@ -20,6 +20,7 @@ namespace Comunes.Estructuras
         private Byte[] vFoto_Detalle_Bien;
         private int vPosicion_Lista_Detalle_Bien;
         private int vID_Bien;
+        private int vBase64;
 
         #endregion
 
@@ -140,6 +141,17 @@ namespace Comunes.Estructuras
             }
         }
 
+        public int Base64
+        {
+            get
+            {
+                return vBase64;
+            }
+            set
+            {
+                vBase64 = value;
+            }
+        }
 
         #endregion
 
