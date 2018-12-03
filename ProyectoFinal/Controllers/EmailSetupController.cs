@@ -28,23 +28,31 @@ namespace ProyectoFinal.Controllers
 
             if (this.Session["CaptchaImageText"].ToString() == Request.Form["CaptchaText"].ToString())
             {
+                try
+                {
+                    MailMessage mm = new MailMessage("randall@gmail.com", model.To);
+                    //MailMessage mm = new MailMessage();
+                    //mm.To = model.To;
+                    mm.Subject = model.Subject;
+                    mm.Body = model.Body;
+                    mm.IsBodyHtml = false;
 
-                MailMessage mm = new MailMessage("javierhernandezaproyecto@gmail.com", model.To);
-                mm.Subject = model.Subject;
-                mm.Body = model.Body;
-                mm.IsBodyHtml = false;
+                    SmtpClient smtp = new SmtpClient();
+                    smtp.Host = "smtp.gmail.com";
+                    smtp.Port = 587;
+                    smtp.EnableSsl = true;
 
-                SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.Port = 587;
-                smtp.EnableSsl = true;
+                    NetworkCredential nc = new NetworkCredential("javierhernandezaproyecto@gmail.com", "emailproyecto");
+                    smtp.UseDefaultCredentials = true;
+                    smtp.Credentials = nc;
+                    smtp.Send(mm);
 
-                NetworkCredential nc = new NetworkCredential("javierhernandezaproyecto@gmail.com", "emailproyecto");
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = nc;
-                smtp.Send(mm);
-
-                ViewBag.Message = "Captcha Validation success!";
+                    ViewBag.Message = "Captcha Validation success!";
+                }
+                catch (Exception e)
+                {
+                    ViewBag.Message = "Dirección inválida";
+                }
             }
             else
             {
