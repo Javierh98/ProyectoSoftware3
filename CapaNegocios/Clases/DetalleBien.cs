@@ -77,6 +77,7 @@ namespace CapaNegocios.Clases
             CapaDatos.Conexion.Conexion vConexiones = new CapaDatos.Conexion.Conexion();
             CapaDatos.Conexion.Transaccion vTransaccion = new CapaDatos.Conexion.Transaccion();
             CapaDatos.Clases.DetalleBien vCapaDatos = new CapaDatos.Clases.DetalleBien();
+            Comunes.Estructuras.DetalleBien vItem;
             try
             {
                 vConexiones.AbrirConexion("BASEDATOS");
@@ -85,13 +86,26 @@ namespace CapaNegocios.Clases
 
                 dtDatos = vCapaDatos.Select(null, vConexiones.Conexiones, vTransaccion.Transacciones);
                 vTransaccion.Commit();
+
+                foreach (DataRow vRow in dtDatos.Rows)
+                {
+                    vItem = new Comunes.Estructuras.DetalleBien() {
+                        Nombre_Detalle_Bien = vRow["Nombre_Detalle_Bien"].ToString(),
+                        Costo_Detalle_Bien = Convert.ToInt32(vRow["Costo_Detalle_Bien"].ToString()),
+                        Avaluo_Detalle_Bien = vRow["Avaluo_Detalle_Bien"].ToString(),
+                        Estado_Detalle_Bien = vRow["Estado_Detalle_Bien"].ToString(),
+                        Ubicacion_Bien = vRow["Ubicacion_Bien"].ToString(),
+                        Base64 = Convert.ToBase64String((byte[])vRow["Foto_Detalle_Bien"]) 
+                    };
+                    vResultado.Add(vItem);
+                }
             }
             catch (Exception ex)
             {
                 vTransaccion.Rollback();
                 throw new Exception(ex.Message, ex);
             }
-            return dtDatos;
+            return vResultado;
         }
 
         public DataTable Select_Tres()
