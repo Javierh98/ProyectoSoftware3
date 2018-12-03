@@ -95,6 +95,7 @@ namespace CapaNegocios.Clases
                         Avaluo_Detalle_Bien = vRow["Avaluo_Detalle_Bien"].ToString(),
                         Estado_Detalle_Bien = vRow["Estado_Detalle_Bien"].ToString(),
                         Ubicacion_Bien = vRow["Ubicacion_Bien"].ToString(),
+                        ID_Detalle_Bien = Convert.ToInt32(vRow["ID_Detalle_Bien"].ToString()),
                         Base64 = Convert.ToBase64String((byte[])vRow["Foto_Detalle_Bien"]) 
                     };
                     vResultado.Add(vItem);
