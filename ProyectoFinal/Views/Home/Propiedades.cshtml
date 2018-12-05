@@ -21,7 +21,7 @@
                 </tr>
                 @{
                     CapaNegocios.Clases.DetalleBien vBien = new CapaNegocios.Clases.DetalleBien();
-                    foreach (Comunes.Estructuras.DetalleBien Item in vBien.Select64())
+                    foreach (Comunes.Estructuras.DetalleBien Item in vBien.Select_Propiedades())
                     {
 
                 <tr>
@@ -40,7 +40,7 @@
         </div>
     </div>
     <script>
-    $(".botonModificar").click(function () {
+        $(".botonModificar").click(function () {
 
         var vValores = "";
         $(this).parents("tr").find(".numero").each(function () {
@@ -49,15 +49,15 @@
 
         $.ajax({
             type: "POST",
-            url: '@(Url.Content("~/") + "General/ListaCarreraProcesar")',
+            url: '@(Url.Content("~/") + "Home/Detalle_Propiedad")',
             content: "application/json; charset=utf-8",
             dataType: "html",
             data: { valores: vValores, pModo: "Modificar" },
             success: function (d) {
-                location.href='@(Url.Content("~/") + "Home/Carrera")'
+                location.href='@(Url.Content("~/") + "Home/Propiedades")'
             },
             error: function (d) {
-               location.href='@(Url.Content("~/") + "Home/Carrera")'
+               location.href='@(Url.Content("~/") + "Home/Propiedades")'
             }
         });
     });

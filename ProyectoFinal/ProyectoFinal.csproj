@@ -209,6 +209,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Propiedades.cshtml" />
     <Content Include="Views\Home\Vehiculos.cshtml" />
+    <Content Include="Views\Home\Detalle_Propiedad.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

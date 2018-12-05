@@ -79,7 +79,7 @@ namespace CapaDatos.Clases
             Conexion.Ejecucion vExecute = new Conexion.Ejecucion();
             try
             {
-                vSQL += "SELECT top 3";
+                vSQL += "SELECT top 3 ";
                 vSQL += "ID_Detalle_Bien ";
                 vSQL += ",Nombre_Detalle_Bien ";
                 vSQL += ",Costo_Detalle_Bien ";
@@ -115,6 +115,56 @@ namespace CapaDatos.Clases
             }
             return dtDatos;
         }
+
+
+        public DataTable Select_Propiedades(List<Comunes.Filtros.Filtro> pFiltros, SqlConnection pConexion, SqlTransaction pTransaccion)
+        {
+            DataTable dtDatos = new DataTable();
+            Comunes.Filtros.Filtro vFiltros = new Comunes.Filtros.Filtro();
+            Comunes.Filtros.FiltroWhere vFiltroWhere = new Comunes.Filtros.FiltroWhere();
+            string vSQL = string.Empty;
+            Conexion.Ejecucion vExecute = new Conexion.Ejecucion();
+            try
+            {
+                vSQL += "SELECT ";
+                vSQL += "ID_Detalle_Bien ";
+                vSQL += ",Nombre_Detalle_Bien ";
+                vSQL += ",Costo_Detalle_Bien ";
+                vSQL += ",Avaluo_Detalle_Bien ";
+                vSQL += ",Estado_Detalle_Bien ";
+                vSQL += ",Ubicacion_Bien ";
+                vSQL += ",Foto_Detalle_Bien ";
+                vSQL += ",Posicion_Lista_Detalle_Bien ";
+                vSQL += ",ID_Bien ";
+                vSQL += " FROM dbo.DetalleBien";
+               
+                if (pFiltros != null)
+                {
+                    vFiltroWhere = vFiltros.CrearWhere(pFiltros);
+                    vSQL += vFiltroWhere.Where;
+                    vcmd = new SqlCommand(vSQL, pConexion);
+                    foreach (SqlParameter vItem in vFiltroWhere.Filtros)
+                    {
+                        vcmd.Parameters.Add(vItem);
+                    }
+                    vcmd.Transaction = pTransaccion;
+                }
+                else
+                {
+                    vSQL += " Where ID_Bien = 1";
+                    vcmd = new SqlCommand(vSQL, pConexion);
+                    vcmd.Transaction = pTransaccion;
+                }
+               
+                dtDatos = vExecute.ExecuteDatatable(vcmd);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
+            return dtDatos;
+        }
+
 
         public DataTable SelectsinArchivo(List<Comunes.Filtros.Filtro> pFiltros, SqlConnection pConexion, SqlTransaction pTransaccion)
         {
