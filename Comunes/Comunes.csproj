@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clases\ObjetoSeleccionado.cs" />
     <Compile Include="Estructuras\Bien.cs" />
     <Compile Include="Estructuras\DetalleBien.cs" />
     <Compile Include="Filtros\Filtro.cs" />

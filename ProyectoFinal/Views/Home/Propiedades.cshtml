@@ -25,11 +25,11 @@
                     {
 
                 <tr>
-                    <td class="numero">@Item.Nombre_Detalle_Bien.ToString()</td>
+                    <td>@Item.Nombre_Detalle_Bien.ToString()</td>
                     <td><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
                     <td>@Item.Costo_Detalle_Bien</td>
                     <td>@Item.Estado_Detalle_Bien</td>
-                    <td>@Item.ID_Detalle_Bien</td>
+                    <td class="numero">@Item.ID_Detalle_Bien</td>
                     <td>
                         <a class="btn btn-primary botonModificar"><i class="glyphicon glyphicon-pencil "></i></a>
                     </td>
@@ -49,15 +49,15 @@
 
         $.ajax({
             type: "POST",
-            url: '@(Url.Content("~/") + "Home/Detalle_Propiedad")',
+            url: '@(Url.Content("~/") + "Home/Detalle_Propiedad_Procesar")',
             content: "application/json; charset=utf-8",
             dataType: "html",
-            data: { valores: vValores, pModo: "Modificar" },
+            data: { valores: vValores},
             success: function (d) {
-                location.href='@(Url.Content("~/") + "Home/Propiedades")'
+                location.href='@(Url.Content("~/") + "Home/Detalle_Propiedad")'
             },
             error: function (d) {
-               location.href='@(Url.Content("~/") + "Home/Propiedades")'
+               location.href='@(Url.Content("~/") + "Home/Detalle_Propiedad")'
             }
         });
     });
@@ -65,3 +65,5 @@
 
     </script>
 }
+
+    
