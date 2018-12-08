@@ -210,6 +210,7 @@
     <Content Include="Views\Home\Propiedades.cshtml" />
     <Content Include="Views\Home\Vehiculos.cshtml" />
     <Content Include="Views\Home\Detalle_Propiedad.cshtml" />
+    <Content Include="Views\Home\Detalle_Vehiculo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

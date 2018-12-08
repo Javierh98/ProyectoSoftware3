@@ -1,8 +1,61 @@
-﻿@{
-    ViewBag.Title = "Vehiculos";
+﻿<h2>Propiedades en oferta</h2>
+<br />
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="col-sm-12">
+            <table class="table table-hover " id="tbl">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Imagen</th>
+                    <th>Costo</th>
+                    <th>Estado</th>
+                    <th>Numero de serial</th>
+                    <th></th>
+                </tr>
+                @{
+                    CapaNegocios.Clases.DetalleBien vBien = new CapaNegocios.Clases.DetalleBien();
+                    foreach (Comunes.Estructuras.DetalleBien Item in vBien.Select_Vehiculos())
+                    {
+
+                        <tr>
+                            <td>@Item.Nombre_Detalle_Bien.ToString()</td>
+                            <td><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
+                            <td>@Item.Costo_Detalle_Bien</td>
+                            <td>@Item.Estado_Detalle_Bien</td>
+                            <td class="numero">@Item.ID_Detalle_Bien</td>
+                            <td>
+                                <a class="btn btn-primary botonModificar"><i class="glyphicon glyphicon-pencil "></i></a>
+                            </td>
+                        </tr>
+                    }
+                }
+            </table>
+        </div>
+    </div>
+    <script>
+        $(".botonModificar").click(function () {
+
+        var vValores = "";
+        $(this).parents("tr").find(".numero").each(function () {
+            vValores += $(this).html();
+        });
+
+        $.ajax({
+            type: "POST",
+            url: '@(Url.Content("~/") + "Home/Detalle_Vehiculo_Procesar")',
+            content: "application/json; charset=utf-8",
+            dataType: "html",
+            data: { valores: vValores},
+            success: function (d) {
+                location.href='@(Url.Content("~/") + "Home/Detalle_Vehiculo")'
+            },
+            error: function (d) {
+               location.href='@(Url.Content("~/") + "Home/Detalle_Vehiculo")'
+            }
+        });
+    });
+
+
+    </script>
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
-
-<p>Use this area to provide additional information.</p>
-

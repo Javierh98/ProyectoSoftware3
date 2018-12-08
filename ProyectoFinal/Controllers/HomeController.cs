@@ -55,6 +55,26 @@ namespace ProyectoFinal.Controllers
 
         }
 
+        public ActionResult Detalle_Vehiculo()
+        {
+            ViewBag.Message = "Your application description page.";
+            Comunes.Estructuras.DetalleBien vDetalleBien = new Comunes.Estructuras.DetalleBien();
+            vDetalleBien = (Comunes.Estructuras.DetalleBien)Comunes.Clases.ObjetoSeleccionado.ojeto;
+            vDetalleBien.Base64 = Convert.ToBase64String(vDetalleBien.Foto_Detalle_Bien);
+
+            return View(vDetalleBien);
+        }
+
+        public void Detalle_Vehiculo_Procesar(string valores)
+        {
+            CapaNegocios.Clases.DetalleBien vDetalle = new CapaNegocios.Clases.DetalleBien();
+            List<Comunes.Filtros.Filtro> vFiltro = new List<Comunes.Filtros.Filtro>();
+
+            vFiltro.Add(new Comunes.Filtros.Filtro("ID_Detalle_Bien", "=", Convert.ToInt32(valores)));
+            Comunes.Clases.ObjetoSeleccionado.ojeto = ConvertirDetalle_Bien(vDetalle.Select(vFiltro));
+
+        }
+
         private Comunes.Estructuras.DetalleBien ConvertirDetalle_Bien(DataTable pDatos)
         {
             Comunes.Estructuras.DetalleBien vDetalleBien = new Comunes.Estructuras.DetalleBien();
