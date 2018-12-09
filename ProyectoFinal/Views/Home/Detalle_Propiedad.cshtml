@@ -7,50 +7,57 @@
 
 @using (Html.BeginForm())
 {
-<div class="container">
+    <div class="container">
 
-    <a class="btn btn-success" onclick="fnImprimir()"><i class="glyphicon glyphicon-open-file"></i> Imprimir </a>
-    <br />
-    <br />
-    <a class="btn btn-success" onclick="fnDividir()"><i class="glyphicon glyphicon-plus"></i> Calcular </a>
+        <a class="btn btn-success" onclick="fnImprimir()"><i class="glyphicon glyphicon-open-file"></i> Imprimir </a>
+        <br />
+        <br />
+        <a class="btn btn-success" onclick="fnDividir()"><i class="glyphicon glyphicon-plus"></i> Calcular </a>
 
-    <div class="form-group row">
-        <div class="col-sm-2">
-            @Html.Label("Monto a pagar:")
+        <div class="form-group row">
+            <div class="col-sm-2">
+                @Html.Label("Monto a pagar:")
+            </div>
+            <div class="col-sm-2">
+                @Html.TextBox("txtPeriodo", "30", (object)new { @class = "form-control" })
+            </div>
+            <div class="col-sm-6">
+                @Html.TextBox("txtTotal", "", (object)new { @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+            </div>
         </div>
-        <div class="col-sm-2">
-            @Html.TextBox("txtPeriodo", "30", (object)new { @class = "form-control" })
-        </div>
-        <div class="col-sm-6">
-            @Html.TextBox("txtTotal", "", (object)new { @class = "form-control" })
-        </div>
-        <div class="col-sm-2">
+
+        <div class="col-sm-12">
+            <table class="table table-hover " id="tbl">
+                <tr style="background-color: #3163B8; color:white">
+                    <th style="text-align:center;">Nombre</th>
+
+                    <th style="text-align:center;">Valor</th>
+                    <th style="text-align:center;">Estado</th>
+                    <th style="text-align:center;">Número de Casa</th>
+                </tr>
+
+                <div style="text-align:center">
+                    <img style="max-height:500px; max-width:1080px; text-align:center" class="img-thumbnail" src="data:image/jpg;base64, @Model.Base64" />
+                </div>
+
+                <br />
+                <p></p>
+
+                <tr>
+                    <td style="background-color:#eeeeee; text-align:center;">@Model.Nombre_Detalle_Bien.ToString()</td>
+
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @Model.Costo_Detalle_Bien,00</td>
+                    <td style="background-color:#dddddd; text-align:center;">@Model.Estado_Detalle_Bien</td>
+                    <td class="numero" style="background-color:#eeeeee; text-align:center;">@Model.ID_Detalle_Bien</td>
+                </tr>
+            </table>
+
+
+
         </div>
     </div>
-
-    <div class="col-sm-12">
-        <table class="table table-hover " id="tbl">
-            <tr style="background-color: #3163B8; color:white">
-                <th style="text-align:center;">Nombre</th>
-                <th style="text-align:center;">Fotos de la casa</th>
-                <th style="text-align:center;">Valor</th>
-                <th style="text-align:center;">Estado</th>
-                <th style="text-align:center;">Número de Casa</th>
-            </tr>
-
-            <tr>
-                <td style="background-color:#eeeeee; text-align:center;">@Model.Nombre_Detalle_Bien.ToString()</td>
-                <td style="background-color:#dddddd; text-align:center;"><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Model.Base64" /></td>
-                <td style="background-color:#eeeeee; text-align:center;">₡ @Model.Costo_Detalle_Bien,00</td>
-                <td style="background-color:#dddddd; text-align:center;">@Model.Estado_Detalle_Bien</td>
-                <td class="numero" style="background-color:#eeeeee; text-align:center;">@Model.ID_Detalle_Bien</td>
-            </tr>
-        </table>
-
-
-
-    </div>
-</div>
 }
 <script>
     function fnImprimir() {
