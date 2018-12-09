@@ -1,11 +1,13 @@
 ﻿@model ProyectoFinal.Models.gmail
 @{
     ViewBag.Title = "Ingrese su consulta";
+    <br />
 }
 <h2>@ViewBag.Title.</h2>
 <h3>@ViewBag.Message</h3>
 
 <div>
+    <br />
     @using (Html.BeginForm("eMail", "EmailSetup", FormMethod.Post, new { enctype = "multipart/form-data" }))
     {
         @Html.ValidationSummary(true)

@@ -56,13 +56,13 @@
              Mira nuestras últimas ofertas que tenemos para ti
     </h1>
 
-            <tr style="background-color:#292c2f; color:white;">
-                <td><h4>Número del bien</h4></td>
-                <td><h4>Nombre</h4></td>
-                <td><h4>Costo</h4></td>
-                <td><h4>Avaluo</h4></td>
-                <td><h4>Estado</h4></td>
-                <td><h4>Ubicacion</h4></td>
+            <tr style="background-color: #3163B8; color:white">
+                <td style="text-align:center;"><h4>Número del bien</h4></td>
+                <td style="text-align:center;"><h4>Nombre</h4></td>
+                <td style="text-align:center;"><h4>Costo</h4></td>
+                <td style="text-align:center;"><h4>Avaluo</h4></td>
+                <td style="text-align:center;"><h4>Estado</h4></td>
+                <td style="text-align:center;"><h4>Ubicacion</h4></td>
             </tr>
         </thead>
         @{
@@ -77,12 +77,12 @@
                 string vUbicacionien = item["Ubicacion_Bien"].ToString();
 
         <tr>
-            <td class="numero">@vNoBien</td>
-            <td>@vNombreBien</td>
-            <td>@vCostoBien</td>
-            <td>@vAvaluoBien</td>
-            <td>@vEstadoBien</td>
-            <td>@vUbicacionien</td>
+            <td class="numero" style="background-color:#dddddd; text-align:center;">@vNoBien</td>
+            <td style="background-color:#eeeeee; text-align:center;">₡ @vNombreBien</td>
+            <td style="background-color:#dddddd; text-align:center;">₡ @vCostoBien,00</td>
+            <td style="background-color:#eeeeee; text-align:center;">₡ @vAvaluoBien</td>
+            <td style="background-color:#dddddd; text-align:center;">₡ @vEstadoBien</td>
+            <td style="background-color:#eeeeee; text-align:center;">₡ @vUbicacionien</td>
         </tr>
             }
         }
@@ -95,10 +95,10 @@
 <div class="container">
     <div class="row">
         <h3 class="badger-left badger-danger" data-badger="Compra altual del $ Dolar" id="tipoCambio">
-            La compra del dolar se encuentra en: ₡600 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+            La compra del dolar se encuentra en: ₡505 <span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
         </h3>
         <h3 class="badger-right badger-success" data-badger="Venta actual del $ Dolar" id="tipoCambio">
-            La venta del dolar se encuentra en: ₡600 <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+            La venta del dolar se encuentra en: ₡510 <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
         </h3>
     </div>
 </div>

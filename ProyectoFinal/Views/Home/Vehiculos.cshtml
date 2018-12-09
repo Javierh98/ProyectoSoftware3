@@ -5,12 +5,12 @@
     <div class="container">
         <div class="col-sm-12">
             <table class="table table-hover " id="tbl">
-                <tr>
-                    <th>Nombre</th>
-                    <th>Imagen</th>
-                    <th>Costo</th>
-                    <th>Estado</th>
-                    <th>Numero de serial</th>
+                <tr style="background-color: #3163B8; color:white">
+                    <th style="text-align:center;">Nombre</th>
+                    <th style="text-align:center;">Fotos del Vehículo</th>
+                    <th style="text-align:center;">Valor</th>
+                    <th style="text-align:center;">Estado</th>
+                    <th style="text-align:center;">Número de Placa</th>
                     <th></th>
                 </tr>
                 @{
@@ -18,16 +18,16 @@
                     foreach (Comunes.Estructuras.DetalleBien Item in vBien.Select_Vehiculos())
                     {
 
-                        <tr>
-                            <td>@Item.Nombre_Detalle_Bien.ToString()</td>
-                            <td><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
-                            <td>@Item.Costo_Detalle_Bien</td>
-                            <td>@Item.Estado_Detalle_Bien</td>
-                            <td class="numero">@Item.ID_Detalle_Bien</td>
-                            <td>
-                                <a class="btn btn-primary botonModificar"><i class="glyphicon glyphicon-pencil "></i></a>
-                            </td>
-                        </tr>
+                <tr>
+                    <td style="background-color:#eeeeee; text-align:center;">@Item.Nombre_Detalle_Bien.ToString()</td>
+                    <td style="background-color:#dddddd; text-align:center;"><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @Item.Costo_Detalle_Bien,00</td>
+                    <td style="background-color:#dddddd; text-align:center;">@Item.Estado_Detalle_Bien</td>
+                    <td class="numero" style="background-color:#eeeeee; text-align:center;">@Item.ID_Detalle_Bien</td>
+                    <td style="background-color:#dddddd; text-align:center;">
+                        <a class="btn btn-success botonModificar"><i class="glyphicon glyphicon-search"></i> Inspeccionar <br /> vehículo</a>
+                    </td>
+                </tr>
                     }
                 }
             </table>
