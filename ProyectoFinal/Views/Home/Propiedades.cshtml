@@ -24,16 +24,16 @@
                     foreach (Comunes.Estructuras.DetalleBien Item in vBien.Select_Propiedades())
                     {
 
-                <tr>
-                    <td style="background-color:#eeeeee; text-align:center;">@Item.Nombre_Detalle_Bien.ToString()</td>
-                    <td style="background-color:#dddddd; text-align:center;"><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
-                    <td style="background-color:#eeeeee; text-align:center;">₡ @Item.Costo_Detalle_Bien,00</td>
-                    <td style="background-color:#dddddd; text-align:center;">@Item.Estado_Detalle_Bien</td>
-                    <td class="numero" style="background-color:#eeeeee; text-align:center;">@Item.ID_Detalle_Bien</td>
-                    <td style="background-color:#dddddd; text-align:center;" >
-                        <a class="btn btn-success botonModificar"><i class="glyphicon glyphicon-search"></i> Inspeccionar <br /> propiedad</a>
-                    </td>
-                </tr>
+                        <tr>
+                            <td style="background-color:#eeeeee; text-align:center;">@Item.Nombre_Detalle_Bien.ToString()</td>
+                            <td style="background-color:#dddddd; text-align:center;"><img style="min-height:100px; max-height:200px; min-width:100px; max-width:200px;" class="img-thumbnail" src="data:image/jpg;base64,@Item.Base64" /></td>
+                            <td style="background-color:#eeeeee; text-align:center;">₡ @Item.Costo_Detalle_Bien,00</td>
+                            <td style="background-color:#dddddd; text-align:center;">@Item.Estado_Detalle_Bien</td>
+                            <td class="numero" style="background-color:#eeeeee; text-align:center;">@Item.ID_Detalle_Bien</td>
+                            <td style="background-color:#dddddd; text-align:center;">
+                                <a class="btn btn-success botonModificar"><i class="glyphicon glyphicon-search"></i> Inspeccionar <br /> propiedad</a>
+                            </td>
+                        </tr>
                     }
                 }
             </table>
@@ -66,4 +66,3 @@
     </script>
 }
 
-    
