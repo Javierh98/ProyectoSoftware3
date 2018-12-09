@@ -35,8 +35,8 @@
                             <li>@Html.ActionLink("Vehículo", "Vehiculos", "Home")</li>
                         </ul>
                     </li>
-                    <li>@Html.ActionLink("Calculadora", "About", "Home")</li>
                     <li>@Html.ActionLink("Contactenos", "eMail", "EmailSetup")</li>
+                    @*<li>@Html.ActionLink("Calculadora", "About", "Home")</li>*@
                 </ul>
             </div>
         </div>
@@ -80,7 +80,7 @@
 
     </div>
 
-   
+
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

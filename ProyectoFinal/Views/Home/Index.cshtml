@@ -51,10 +51,10 @@
 <div class="container">
     <table class="table table-hover " id="tbl">
         <thead>
-    <h1>
-        <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span> 
-             Mira nuestras últimas ofertas que tenemos para ti
-    </h1>
+            <h1>
+                <span class="glyphicon glyphicon-folder-open" aria-hidden="true"></span>
+                Mira nuestras últimas ofertas que tenemos para ti
+            </h1>
 
             <tr style="background-color: #3163B8; color:white">
                 <td style="text-align:center;"><h4>Número del bien</h4></td>
@@ -62,7 +62,7 @@
                 <td style="text-align:center;"><h4>Costo</h4></td>
                 <td style="text-align:center;"><h4>Avaluo</h4></td>
                 <td style="text-align:center;"><h4>Estado</h4></td>
-                <td style="text-align:center;"><h4>Ubicacion</h4></td>
+                <td style="text-align:center;"><h4>Ubicación</h4></td>
             </tr>
         </thead>
         @{
@@ -76,20 +76,21 @@
                 string vEstadoBien = item["Estado_Detalle_Bien"].ToString();
                 string vUbicacionien = item["Ubicacion_Bien"].ToString();
 
-        <tr>
-            <td class="numero" style="background-color:#dddddd; text-align:center;">@vNoBien</td>
-            <td style="background-color:#eeeeee; text-align:center;">₡ @vNombreBien</td>
-            <td style="background-color:#dddddd; text-align:center;">₡ @vCostoBien,00</td>
-            <td style="background-color:#eeeeee; text-align:center;">₡ @vAvaluoBien</td>
-            <td style="background-color:#dddddd; text-align:center;">₡ @vEstadoBien</td>
-            <td style="background-color:#eeeeee; text-align:center;">₡ @vUbicacionien</td>
-        </tr>
+                <tr>
+                    <td class="numero" style="background-color:#dddddd; text-align:center;">@vNoBien</td>
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @vNombreBien</td>
+                    <td style="background-color:#dddddd; text-align:center;">₡ @vCostoBien,00</td>
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @vAvaluoBien</td>
+                    <td style="background-color:#dddddd; text-align:center;">₡ @vEstadoBien</td>
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @vUbicacionien</td>
+                </tr>
             }
         }
     </table>
 </div>
 
-<h1><span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
+<h1>
+    <span class="glyphicon glyphicon-usd" aria-hidden="true"></span>
     Conoce sobre nuestro tipo de cambio
 </h1>
 <div class="container">

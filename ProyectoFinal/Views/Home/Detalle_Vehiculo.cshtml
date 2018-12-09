@@ -1,4 +1,75 @@
-﻿@{
-    ViewBag.Title = "Detalle de Vehiculos";
+﻿@using Comunes;
+@using System.Data;
+@model Comunes.Estructuras.DetalleBien
+@{
+    ViewBag.Title = "Detalle de las Propiedades";
 }
 
+@using (Html.BeginForm())
+{
+    <h1>Detalles de la Propiedad</h1>
+
+    <div class="container">
+
+        <div style="text-align:center">
+            <img style="max-height:400px; max-width:1080px; text-align:center" class="img-thumbnail" src="data:image/jpg;base64, @Model.Base64" />
+        </div> <br />
+
+        <div class="col-sm-12">
+            <table class="table table-hover " id="tbl">
+                <tr style="background-color: #3163B8; color:white">
+                    <th style="text-align:center;">Número del Vehículo</th>
+                    <th style="text-align:center;">Nombre</th>
+                    <th style="text-align:center;">Valor</th>
+                    <th style="text-align:center;">Estado del Vehículo</th>
+                    <th style="text-align:center;">Avaluo del Vehículo</th>
+                    <th style="text-align:center;">Ubicación del Vehículo</th>
+                </tr>
+
+                <tr>
+                    <td class="numero" style="background-color:#eeeeee; text-align:center;">@Model.ID_Detalle_Bien</td>
+                    <td style="background-color:#dddddd; text-align:center;">@Model.Nombre_Detalle_Bien.ToString()</td>
+                    <td style="background-color:#eeeeee; text-align:center;">₡ @Model.Costo_Detalle_Bien,00</td>
+                    <td style="background-color:#dddddd; text-align:center;">@Model.Estado_Detalle_Bien</td>
+                    <td style="background-color:#eeeeee; text-align:center;">@Model.Avaluo_Detalle_Bien</td>
+                    <td style="background-color:#dddddd; text-align:center;">@Model.Ubicacion_Bien</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-2">
+                @Html.Label("Periodo en años:")
+            </div>
+            <div class="col-sm-2">
+                @Html.TextBox("txtPeriodo", "", (object)new { @class = "form-control", @required = "requiered" })
+            </div>
+            <div class="col-sm-2">
+                @Html.TextBox("txtTotal", "", (object)new { @class = "form-control" })
+            </div>
+            <div class="col-sm-2">
+                <a class="btn btn-success" onclick="fnDividir()"><i class="glyphicon glyphicon-plus"></i> Calcular </a>
+            </div>
+            <div class="col-sm-2">
+                @Html.Label("Imprime el archivo:")
+            </div>
+            <div class="col-sm-2">
+                <a class="btn btn-success" onclick="fnImprimir()"><i class="glyphicon glyphicon-open-file"></i> Imprimir </a>
+            </div>
+        </div>
+    </div>
+}
+
+<script>
+    function fnImprimir() {
+        window.print();
+    }
+
+     function fnDividir() {
+        var vMonto = parseFloat("@Model.Costo_Detalle_Bien");
+        var vPeriodo = parseFloat($("#txtPeriodo").val());
+        var vResultado = vMonto / vPeriodo;
+
+        $("#txtTotal").val(vResultado);
+    }
+</script>
