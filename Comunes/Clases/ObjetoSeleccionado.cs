@@ -7,6 +7,7 @@ namespace Comunes.Clases
 {
     public class ObjetoSeleccionado
     {
+        #region declaracion del objeto
         static object vObjeto;
 
         public static object ojeto
@@ -20,5 +21,6 @@ namespace Comunes.Clases
                 vObjeto = value;
             }
         }
+        #endregion
     }
 }
